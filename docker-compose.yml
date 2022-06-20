@@ -14,14 +14,3 @@ services:
     image: adminer
     ports:
       - "9090:8080"
-  api:
-    image: docker.oryfox.de/vinylapi
-    ports:
-      - "8080:8080"
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://vinylish_db:3306/vinylish
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=root
-      - SPRING_DATASOURCE_DRIVER-CLASS-NAME=com.mysql.cj.jdbc.Driver
-      - SPRING_JPA_HIBERNATE_DDL-AUTO=update
-      - CORS_FIELD=vinyl.oryfox.de
