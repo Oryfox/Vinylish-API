@@ -1,5 +1,6 @@
 package de.oryfox.vinylish.record;
 
+import de.oryfox.vinylish.tags.Tag;
 import de.oryfox.vinylish.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -25,4 +26,6 @@ public interface RecordRepository extends JpaRepository<Record, Long> {
 
     @Query("select distinct r.artist from Record r where r.creator = :user order by r.artist")
     List<String> findAllArtists(User user);
+
+    List<Record> findAllByCreatorAndTagsContaining(User creator, Tag tags);
 }

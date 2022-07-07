@@ -3,6 +3,7 @@ package de.oryfox.vinylish.record;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import de.oryfox.vinylish.ImageType;
+import de.oryfox.vinylish.tags.Tag;
 import de.oryfox.vinylish.track.Track;
 import de.oryfox.vinylish.user.User;
 import lombok.Getter;
@@ -33,6 +34,8 @@ public class Record {
     private boolean bootleg;
     @ManyToOne
     private User creator;
+    @ManyToMany
+    private List<Tag> tags;
 
     @JsonGetter("creator")
     @JsonInclude(JsonInclude.Include.NON_NULL)
